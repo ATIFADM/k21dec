@@ -45,7 +45,7 @@ resource "azurerm_windows_virtual_machine" "example" {
   ]
 
   os_disk {
-    caching              = "ReadWrite"
+    caching              = "ReadWrite"  
     storage_account_type = "Standard_LRS"
   }
 
