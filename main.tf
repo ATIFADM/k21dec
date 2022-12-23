@@ -7,6 +7,15 @@ resource "azurerm_resource_group" "example" {
   location = "eastus"
 }
 
+
+resource "azurerm_resource_group" "example1" {
+  name     = "rgvm1"
+  location = "eastus"
+}
+
+
+
+
 resource "azurerm_virtual_network" "example" {
   name                = "example-network"
   address_space       = ["10.0.0.0/16"]
