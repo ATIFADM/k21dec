@@ -13,9 +13,6 @@ resource "azurerm_resource_group" "example1" {
   location = "eastus"
 }
 
-
-
-
 resource "azurerm_virtual_network" "example" {
   name                = "example-network"
   address_space       = ["10.0.0.0/16"]
@@ -39,7 +36,10 @@ resource "azurerm_network_interface" "example" {
     name                          = "internal"
     subnet_id                     = azurerm_subnet.example.id
     private_ip_address_allocation = "Dynamic"
+    public_ip_address_id          = azurerm_resource_group.example.name
+
   }
+
 }
 
 resource "azurerm_windows_virtual_machine" "example" {
@@ -54,7 +54,7 @@ resource "azurerm_windows_virtual_machine" "example" {
   ]
 
   os_disk {
-    caching              = "ReadWrite"  
+    caching              = "ReadWrite"
     storage_account_type = "Standard_LRS"
   }
 
